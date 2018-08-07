@@ -1,209 +1,182 @@
-<style>
-  @import "compass/css3";
+<!DOCTYPE html>
+<html lang="en" >
 
-@import url(https://fonts.googleapis.com/css?family=Megrim);
-
-$line-size: 1px;
-
-$color-init: #F9D423;
-$color-first: #FE4365;
-$color-second: #C7F464;
-$color-third: #4ECDC4;
-$color-fourth: #556270;
-
-$megrim: 'Megrim', cursive;
-
+<head>
+  <meta charset="UTF-8">
+  <title>Split</title>
+  
+  
+  
+      <style>
+    @import url(https://fonts.googleapis.com/css?family=Megrim);
 html {
-    height: 100%;
+  height: 100%;
 }
+
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 .loader {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    .line {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        transform-origin: left top;
-
-        &.first {
-            background: $color-first;
-        }
-
-        &.second {
-            background: $color-second;
-        }
-
-        &.third {
-            background: $color-third;
-        }
-
-        &.fourth {
-            background: $color-fourth;
-        }
-    }
-
-    .mask {
-        position: absolute;
-        z-index: 2;
-
-        &.horizontal {
-            width: 100%;
-            height: calc(50% - #{$line-size});
-
-            &.top {
-                top: 0;
-            }
-
-            &.bottom {
-                bottom: 0;
-            }
-        }
-
-        &.vertical {
-            height: 100%;
-            width: calc(50% - #{$line-size});
-
-            &.right {
-                right: 0;
-            }
-
-            &.left {
-                left: 0;
-            }
-        }
-
-        &.top-right {
-            right: 0;
-            top: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 271px 200px 0;
-        }
-
-        &.bottom-left {
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 200px 0 0 271px;
-
-            transform-origin: top right;
-        }
-
-        &.top-left {
-            left: 0;
-            top: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 200px 271px 0 0;
-        }
-
-        &.bottom-right {
-            bottom: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-style: solid;
-            border-width: 0 0 200px 271px;
-        }
-    }
-
-    &.first {
-        background: $color-init;
-
-        .mask {
-            background: $color-init;
-        }
-    }
-
-    &.second {
-        background: $color-first;
-
-        .mask {
-            background: $color-first;
-        }
-    }
-
-    &.third {
-        background: $color-second;
-
-        .mask {
-            &.top-right {
-                border-color: transparent $color-second transparent transparent;
-            }
-
-            &.bottom-left {
-                border-color: transparent transparent transparent $color-second;
-            }
-        }
-    }
-
-    &.fourth {
-        background: $color-third;
-
-        .mask {
-            &.top-left {
-                border-color: $color-third transparent transparent transparent;
-            }
-
-            &.bottom-right {
-                border-color: transparent transparent $color-third transparent;
-            }
-        }
-    }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.loader .line {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+}
+.loader .line.first {
+  background: #FE4365;
+}
+.loader .line.second {
+  background: #C7F464;
+}
+.loader .line.third {
+  background: #4ECDC4;
+}
+.loader .line.fourth {
+  background: #556270;
+}
+.loader .mask {
+  position: absolute;
+  z-index: 2;
+}
+.loader .mask.horizontal {
+  width: 100%;
+  height: calc(50% - 1px);
+}
+.loader .mask.horizontal.top {
+  top: 0;
+}
+.loader .mask.horizontal.bottom {
+  bottom: 0;
+}
+.loader .mask.vertical {
+  height: 100%;
+  width: calc(50% - 1px);
+}
+.loader .mask.vertical.right {
+  right: 0;
+}
+.loader .mask.vertical.left {
+  left: 0;
+}
+.loader .mask.top-right {
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 271px 200px 0;
+}
+.loader .mask.bottom-left {
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 0 0 271px;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+.loader .mask.top-left {
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 271px 0 0;
+}
+.loader .mask.bottom-right {
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 200px 271px;
+}
+.loader.first {
+  background: #F9D423;
+}
+.loader.first .mask {
+  background: #F9D423;
+}
+.loader.second {
+  background: #FE4365;
+}
+.loader.second .mask {
+  background: #FE4365;
+}
+.loader.third {
+  background: #C7F464;
+}
+.loader.third .mask.top-right {
+  border-color: transparent #C7F464 transparent transparent;
+}
+.loader.third .mask.bottom-left {
+  border-color: transparent transparent transparent #C7F464;
+}
+.loader.fourth {
+  background: #4ECDC4;
+}
+.loader.fourth .mask.top-left {
+  border-color: #4ECDC4 transparent transparent transparent;
+}
+.loader.fourth .mask.bottom-right {
+  border-color: transparent transparent #4ECDC4 transparent;
 }
 
 .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    background: $color-fourth;
-
-    h1 {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin: 0;
-        padding: 0;
-        transform: translateX(-50%) translateY(-50%);
-        font-family: $megrim;
-        font-size: 80px;
-        color: white;
-        text-align: center;
-
-        .underline {
-            position: relative;
-            display: block;
-            width: 160px;
-            height: 5px;
-            background: white;
-            margin-top: 20px;
-            left: 50%;
-            transform: translateX(-48%);
-        }
-    }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: #556270;
 }
-</style>
+.content h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  padding: 0;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  font-family: "Megrim", cursive;
+  font-size: 80px;
+  color: white;
+  text-align: center;
+}
+.content h1 .underline {
+  position: relative;
+  display: block;
+  width: 160px;
+  height: 5px;
+  background: white;
+  margin-top: 20px;
+  left: 50%;
+  -webkit-transform: translateX(-48%);
+          transform: translateX(-48%);
+}
 
-<html>
+    </style>
+
+  
+</head>
+
+<body>
+
   <div class="loader first">
         <div class="line first"></div>
         <div class="mask horizontal top"></div>
@@ -230,25 +203,23 @@ body {
 
     <div class="content">
         <h1>
-            <span class="letter">A</span>
-            <span class="letter">l</span>
-            <span class="letter">i</span>
-            <span class="letter">f</span>
-            <span class="letter">A</span>
-            <span class="letter">b</span>
-            <span class="letter">h</span>
-            <span class="letter">i</span>
+            <span class="letter">W</span>
             <span class="letter">e</span>
-            <span class="letter">s</span>
-            <span class="letter">a</span>
+            <span class="letter">l</span>
+            <span class="letter">c</span>
+            <span class="letter">o</span>
+            <span class="letter">m</span>
+            <span class="letter">e</span>
 
             <div class="underline"></div>
         </h1>
     </div>
-</html>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
 
-<script>
-  var screenWidth,
+  
+
+    <script>
+    var screenWidth,
     screenHeight;
 
 function start () {
@@ -335,5 +306,11 @@ function setTimelineContent () {
 
 
 start();
+    </script>
 
-</script>
+
+
+
+</body>
+
+</html>
