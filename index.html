@@ -3,171 +3,231 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Split</title>
+  <title>Alif Abhiesa</title>
   
   
-  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css'>
+
       <style>
-    @import url(https://fonts.googleapis.com/css?family=Megrim);
-html {
-  height: 100%;
+    @import 'https://fonts.googleapis.com/css?family=Raleway';
+* {
+  outline: none;
+  user-select: none;
+}
+
+body, html {
+  margin: 0;
+  background: #ddd;
+  color: #7a7b7c;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
+  font-family: "Raleway", "Microsoft JhengHei", Arial, sans-serif;
 }
 
-.loader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-.loader .line {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  -webkit-transform-origin: left top;
-          transform-origin: left top;
-}
-.loader .line.first {
-  background: #FE4365;
-}
-.loader .line.second {
-  background: #C7F464;
-}
-.loader .line.third {
-  background: #4ECDC4;
-}
-.loader .line.fourth {
-  background: #556270;
-}
-.loader .mask {
-  position: absolute;
-  z-index: 2;
-}
-.loader .mask.horizontal {
-  width: 100%;
-  height: calc(50% - 1px);
-}
-.loader .mask.horizontal.top {
-  top: 0;
-}
-.loader .mask.horizontal.bottom {
-  bottom: 0;
-}
-.loader .mask.vertical {
-  height: 100%;
-  width: calc(50% - 1px);
-}
-.loader .mask.vertical.right {
-  right: 0;
-}
-.loader .mask.vertical.left {
-  left: 0;
-}
-.loader .mask.top-right {
-  right: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 271px 200px 0;
-}
-.loader .mask.bottom-left {
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 200px 0 0 271px;
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
-}
-.loader .mask.top-left {
-  left: 0;
-  top: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 200px 271px 0 0;
-}
-.loader .mask.bottom-right {
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 200px 271px;
-}
-.loader.first {
-  background: #F9D423;
-}
-.loader.first .mask {
-  background: #F9D423;
-}
-.loader.second {
-  background: #FE4365;
-}
-.loader.second .mask {
-  background: #FE4365;
-}
-.loader.third {
-  background: #C7F464;
-}
-.loader.third .mask.top-right {
-  border-color: transparent #C7F464 transparent transparent;
-}
-.loader.third .mask.bottom-left {
-  border-color: transparent transparent transparent #C7F464;
-}
-.loader.fourth {
-  background: #4ECDC4;
-}
-.loader.fourth .mask.top-left {
-  border-color: #4ECDC4 transparent transparent transparent;
-}
-.loader.fourth .mask.bottom-right {
-  border-color: transparent transparent #4ECDC4 transparent;
-}
-
-.content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: #556270;
-}
-.content h1 {
+.profile {
+  width: 330px;
+  height: 100px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: 0;
-  padding: 0;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  font-family: "Megrim", cursive;
-  font-size: 80px;
-  color: white;
-  text-align: center;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background-color: #fafafa;
+  box-shadow: 0 0 2rem #babbbc;
+  animation: show-profile 0.5s forwards ease-in-out;
 }
-.content h1 .underline {
-  position: relative;
-  display: block;
-  width: 160px;
-  height: 5px;
-  background: white;
+@keyframes show-profile {
+  0% {
+    width: 0;
+  }
+}
+.profile .photo, .profile .content {
+  box-sizing: border-box;
+}
+.profile .photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #fafafa;
+  background-color: #fafafa;
+  margin-left: -50px;
+  box-shadow: 0 0 0.5rem #babbbc;
+  animation: rotate-photo 0.5s forwards ease-in-out;
+}
+@keyframes rotate-photo {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.profile .photo img {
+  width: 100%;
+}
+.profile .content {
+  padding: 10px;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.profile .content::before {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 150px;
+  background-color: #e9f3e6;
+  left: 0;
+  top: -20px;
+  z-index: -1;
+  transform: rotate(-8deg);
+}
+.profile .content .text {
   margin-top: 20px;
-  left: 50%;
-  -webkit-transform: translateX(-48%);
-          transform: translateX(-48%);
+  margin-left: 50px;
+}
+.profile .content .text h3, .profile .content .text h6 {
+  font-weight: normal;
+  margin: 3px 0;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.profile .content .btn {
+  background-color: #abc;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  animation: pop-btn 0.3s both ease-in-out 0.5s;
+}
+@keyframes pop-btn {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.profile .content .btn:hover {
+  box-shadow: 0 0 0 5px rgba(170, 187, 204, 0.5);
+}
+.profile .content .btn span {
+  width: 60%;
+  height: 2px;
+  position: absolute;
+  background-color: white;
+  top: 50%;
+  left: 20%;
+  transform: translateY(-50%);
+  animation: to-hamburger 0.3s forwards ease-in-out;
+}
+.profile .content .btn span::before, .profile .content .btn span::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  background-color: white;
+  transition-duration: 0.3s;
+  transform: rotate(0deg);
+  right: 0;
+}
+.profile .content .btn span::before {
+  margin-top: -7px;
+}
+.profile .content .btn span::after {
+  margin-top: 7px;
+}
+.profile .content .btn.active span {
+  animation: to-arrow 0.3s forwards ease-in-out;
+}
+.profile .content .btn.active span::before, .profile .content .btn.active span::after {
+  width: 60%;
+  right: -1px;
+}
+.profile .content .btn.active span::before {
+  transform: rotate(45deg);
+}
+.profile .content .btn.active span::after {
+  transform: rotate(-45deg);
+}
+@keyframes to-hamburger {
+  from {
+    transform: translateY(-50%) rotate(-180deg);
+  }
+}
+@keyframes to-arrow {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+.profile .box {
+  width: 150px;
+  height: 150px;
+  opacity: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  top: 50%;
+  right: -40%;
+  transform: translate(-50%, -50%);
+  transition-duration: 0.3s;
+}
+.profile .box i {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ececec;
+  font-size: 26px;
+  text-align: center;
+  line-height: 50px;
+  position: absolute;
+  left: 18px;
+  top: calc(75px - 50px/2);
+  box-shadow: 0 0 0.5rem #babbbc;
+  transition-duration: 0.3s;
+}
+.profile .box i:hover {
+  transition-delay: initial !important;
+  box-shadow: 0 0 0 5px #babbbc;
+}
+.profile .box.open {
+  opacity: 1;
+}
+.profile .box.open i {
+  left: 60px;
+}
+.profile .box.open i:nth-of-type(1) {
+  transform: rotate(-90deg) translateX(120px) rotate(90deg);
+  transition-delay: 0s;
+}
+.profile .box.open i:nth-of-type(2) {
+  transform: rotate(-45deg) translateX(120px) rotate(45deg);
+  transition-delay: 0.1s;
+}
+.profile .box.open i:nth-of-type(3) {
+  transform: rotate(0deg) translateX(120px) rotate(0deg);
+  transition-delay: 0.2s;
+}
+.profile .box.open i:nth-of-type(4) {
+  transform: rotate(45deg) translateX(120px) rotate(-45deg);
+  transition-delay: 0.3s;
+}
+.profile .box.open i:nth-of-type(5) {
+  transform: rotate(90deg) translateX(120px) rotate(-90deg);
+  transition-delay: 0.4s;
 }
 
     </style>
@@ -177,135 +237,33 @@ body {
 
 <body>
 
-  <div class="loader first">
-        <div class="line first"></div>
-        <div class="mask horizontal top"></div>
-        <div class="mask horizontal bottom"></div>
+  
+<div class="profile">
+  <div class="photo"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/764024/profile/profile-512.jpg"/></div>
+  <div class="content">
+    <div class="text">
+      <h3>Alif Abhiesa</h3>
+      <h6>Web Developer</h6>
     </div>
-
-    <div class="loader second">
-        <div class="line second"></div>
-        <div class="mask vertical left"></div>
-        <div class="mask vertical right"></div>
-    </div>
-
-    <div class="loader third">
-        <div class="line third"></div>
-        <div class="mask top-right"></div>
-        <div class="mask bottom-left"></div>
-    </div>
-
-    <div class="loader fourth">
-        <div class="line fourth"></div>
-        <div class="mask top-left"></div>
-        <div class="mask bottom-right"></div>
-    </div>
-
-    <div class="content">
-        <h1>
-            <span class="letter">A</span>
-            <span class="letter">p</span>
-            <span class="letter">a</span>
-            <span class="letter">C</span>
-            <span class="letter">u</span>
-            <span class="letter">k</span>
-            <span class="letter">?</span>
-
-            <div class="underline"></div>
-        </h1>
-    </div>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+    <div class="btn"><span></span></div>
+  </div>
+  <div class="box"><i class="fa fa-instagram"></i><i class="fa fa-github"></i></div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 
   
 
     <script>
-    var screenWidth,
-    screenHeight;
+    (function() {
+  $('.btn').click(function() {
+    $(this).toggleClass('active');
+    return $('.box').toggleClass('open');
+  });
 
-function start () {
+}).call(this);
 
-    resize();
-    window.addEventListener('resize', resize);
-
-     var tlLoader     = setTimelineLoader(),
-        tlContent    = setTimelineContent(),
-        tlGlobal     = new TimelineMax();
-
-    tlGlobal.set(document.querySelector('.content'), {alpha: 0});
-    tlGlobal.add(tlLoader);
-    tlGlobal.set(document.querySelector('.content'), {alpha: 1});
-    tlGlobal.add(tlContent);
-    tlGlobal.play();
-
-};
-
-function resize () {
-    screenWidth  = document.documentElement.clientWidth,
-    screenHeight = document.documentElement.clientHeight;
-};
-
-function setTimelineLoader () {
-    var first            = document.querySelector('.line.first'),
-        maskTop          = document.querySelector('.mask.top'),
-        maskBottom       = document.querySelector('.mask.bottom');
-
-    var second           = document.querySelector('.line.second'),
-        maskLeft         = document.querySelector('.mask.left'),
-        maskRight        = document.querySelector('.mask.right');
-
-    var third            = document.querySelector('.line.third'),
-        maskBottomLeft   = document.querySelector('.mask.bottom-left'),
-        maskTopRight     = document.querySelector('.mask.top-right');
-    maskTopRight.style.borderWidth    = '0 '+ (screenWidth-1) + 'px '+ (screenHeight-1) +'px 0';
-    maskBottomLeft.style.borderWidth  = ''+ (screenHeight-1) +'px 0 0 '+ (screenWidth-1) +'px';
-
-    var fourth            = document.querySelector('.line.fourth'),
-        maskTopLeft       = document.querySelector('.mask.top-left'),
-        maskBottomRight   = document.querySelector('.mask.bottom-right');
-    maskTopLeft.style.borderWidth     = (screenHeight-1) + 'px '+ (screenWidth-1) +'px 0 0';
-    maskBottomRight.style.borderWidth = '0 0 '+ (screenHeight-1) +'px '+ (screenWidth-1) +'px';
-
-    TweenMax.set(document.querySelector('.loader.second'), {alpha: 0});
-    TweenMax.set(document.querySelector('.loader.third'), {alpha: 0});
-    TweenMax.set(document.querySelector('.loader.fourth'), {alpha: 0});
-
-    var tl = new TimelineMax();
-
-    tl.fromTo(first, 0.4, {x: screenWidth}, {x: 0, ease: Circ.easeIn}, 0);
-    tl.fromTo(maskTop, 0.4, {y: 0}, {y: -screenHeight/2, ease: Expo.easeOut, delay: 0.1}, 0.4);
-    tl.fromTo(maskBottom, 0.4, {y: 0}, {y: screenHeight/2, ease: Expo.easeOut, delay: 0.1}, 0.4);
-    tl.set(document.querySelector('.loader.first'), {alpha: 0});
-
-    tl.set(document.querySelector('.loader.second'), {alpha: 1});
-    tl.fromTo(second, 0.4, {y: -screenHeight}, {y: 0, ease: Circ.easeIn});
-    tl.fromTo(maskRight, 0.4, {x: 0}, {x: screenWidth/2, ease: Expo.easeOut, delay: 0.1}, 1.2); // 2.5
-    tl.fromTo(maskLeft, 0.4, {x: 0}, {x: -screenWidth/2, ease: Expo.easeOut, delay: 0.1}, 1.2);
-    tl.set(document.querySelector('.loader.second'), {alpha: 0});
-
-    tl.set(document.querySelector('.loader.third'), {alpha: 1});
-    tl.fromTo(third, 0.4, {x: screenWidth}, {x: 0, ease: Circ.easeIn});
-    tl.fromTo(maskTopRight, 0.4, {y: 0}, {y: -screenHeight, ease: Circ.easeOut, delay: 0.1}, 2);
-    tl.fromTo(maskBottomLeft, 0.4, {y: 0}, {y: screenHeight, ease: Circ.easeOut, delay: 0.1}, 2);
-
-    tl.set(document.querySelector('.loader.fourth'), {alpha: 1});
-    tl.fromTo(fourth, 0.4, {y: -screenHeight}, {y: 0, ease: Circ.easeIn});
-    tl.fromTo(maskTopLeft, 0.4, {x: 0}, {x: -screenWidth, ease: Circ.easeOut, delay: 0.1}, 2.8);
-    tl.fromTo(maskBottomRight, 0.4, {x: 0}, {x: screenWidth, ease: Circ.easeOut, delay: 0.1}, 2.8);
-
-    return tl;
-};
-
-function setTimelineContent () {
-    var tl = new TimelineMax();
-    tl.set(document.querySelector('.underline'), {width: 0});
-    tl.staggerFromTo(document.querySelectorAll('.letter'), 0.9, {'font-size': 0, alpha: 0}, {'font-size': '80px', alpha: 1, ease: Expo.easeInOut}, 0.08);
-    tl.fromTo(document.querySelector('.underline'), 0.6, {width: 0, alpha: 0}, {width: 160, alpha: 1, ease: Sine.easeOut});
-
-    return tl;
-}
-
-
-start();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiPGFub255bW91cz4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBQSxDQUFBLENBQUUsTUFBRixDQUFTLENBQUMsS0FBVixDQUFnQixRQUFBLENBQUEsQ0FBQTtJQUNmLENBQUEsQ0FBRSxJQUFGLENBQU8sQ0FBQyxXQUFSLENBQW9CLFFBQXBCO1dBQ0EsQ0FBQSxDQUFFLE1BQUYsQ0FBUyxDQUFDLFdBQVYsQ0FBc0IsTUFBdEI7RUFGZSxDQUFoQjtBQUFBIiwic291cmNlc0NvbnRlbnQiOlsiJCgnLmJ0bicpLmNsaWNrIC0+XG5cdCQodGhpcykudG9nZ2xlQ2xhc3MgJ2FjdGl2ZSdcblx0JCgnLmJveCcpLnRvZ2dsZUNsYXNzICdvcGVuJyJdfQ==
+//# sourceURL=coffeescript
     </script>
 
 
